@@ -1,1 +1,1 @@
-from Naviance import Naviance
+from naviance.Naviance import Naviance
