@@ -1,12 +1,11 @@
-from os import path
+import os
 from setuptools import setup, find_packages
 
-
-here = path.abspath(path.dirname(__file__))
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+with open(os.path.join(HERE, 'README.rst'), encoding='utf-8') as f:
+    LONG_DESCRIPTION = f.read()
 
 setup(
     name='naviance-client',
@@ -15,7 +14,7 @@ setup(
 
     description='A simple client for the Naviance SchoolSync REST API',
 
-    long_description=long_description,
+    long_description=LONG_DESCRIPTION,
 
     url='https://github.com/IronCountySchoolDistrict/naviance-client',
 
