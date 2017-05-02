@@ -42,7 +42,7 @@ class Naviance(object):
         :param email: str, Email Address that Naviance will send import reports to
         :param data_import_key: str, Naviance Data Import Key. Can be found on the Data Import Page in the Naviance District interface
         :param has_header: bool, True if the first line of your csv file is a header row, False if it is not
-        :param import_format: str,
+        :param import_format: str
         """
 
         self.account = account
@@ -62,7 +62,7 @@ class Naviance(object):
         """
 
         files = {
-            # file name must be 'datafile'
+            # file name field must be 'datafile'
             'datafile': ('data.csv', raw_import_data)
         }
 
@@ -110,6 +110,18 @@ class Naviance(object):
         payload = {
             'type': ImportType.ACT.value,
             'description': 'act_data_update'
+        }
+
+        return self.import_data(payload, raw_import_data)
+
+    def import_student_course(self, raw_import_data: str) -> requests.Response:
+        """
+        Perform an import of Student Course data
+        """
+
+        payload = {
+            'type': ImportType.STUDENT_COURSE.value,
+            'description': 'student_course_update'
         }
 
         return self.import_data(payload, raw_import_data)
